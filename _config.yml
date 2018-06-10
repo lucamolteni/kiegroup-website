@@ -1,0 +1,20 @@
+title: KIE Group - Knowledge is Everything
+author: KIE Group
+email: karreiro@gmail.com
+description: >
+  Open source projects for business systems automation and management.
+baseurl: ''
+url: 'http://www.kiegroup.org'
+google_analytics: 'UA-120633994-1'
+markdown: kramdown
+sass:
+  style: compressed
+exclude:
+  - bin
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - rakelib
+  - README.md
+  - LICENSE-ASL-2.0.txt
+  - CNAME
