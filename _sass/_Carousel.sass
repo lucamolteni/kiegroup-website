@@ -1,0 +1,42 @@
+.masthead
+  border-bottom: 1px solid #FFF
+  box-shadow: 0 1px 0 #CCC
+  display: none
+
+  .kie-slide-0,
+  .kie-slide-1,
+  .kie-slide-2,
+  .kie-slide-3
+    color: #FFF
+    height: 30rem
+    background-size: cover
+
+  @media (max-width: 50.0rem)
+    .kie-slide-0,
+    .kie-slide-1,
+    .kie-slide-2,
+    .kie-slide-3
+      height: 40rem
+
+  @media (max-width: 30.0rem)
+    .kie-slide-0,
+    .kie-slide-1,
+    .kie-slide-2,
+    .kie-slide-3
+      height: 50rem
+
+
+  .kie-slide-0
+    background-image: url(./background-0.png)
+
+  .kie-slide-1
+    background-image: url(./background-1.png)
+
+  .kie-slide-2
+    background-image: url(./background-2.png)
+
+  .kie-slide-3
+    background-image: url(./background-3.png)
+
+.masthead.slick-initialized
+  display: block

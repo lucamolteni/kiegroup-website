@@ -1,0 +1,29 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="{{ site.author }}">
+
+  <title>
+    {{ site.title | escape }}
+    {% if page.title %}
+      |
+      {{ page.title | escape }}
+    {% endif %}
+  </title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <link rel="icon" href="./assets/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,700,800,900" rel="stylesheet">
+
+  <script type="text/javascript" src="./assets/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="./assets/normalize.css">
+  <link rel="stylesheet" href="./assets/main.css">
+  <link rel="stylesheet" href="./assets/slick.css">
+  <link rel="stylesheet" href="./assets/slick-theme.css">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+  {% include google-analytics.html %}
+  {% endif %}
+</head>

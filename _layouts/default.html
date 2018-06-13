@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+      {% include header.html %}
+      {% include carousel.html %}
+
+      <main class="wrapper">
+        {{ content }}
+        {% include projects.html %}
+        {% include join-our-community.html %}
+      </main>
+
+      {% include footer.html %}
+  </body>
+</html>
