@@ -1,59 +1,66 @@
-<div id="middleware_tab">
-  <div class="wrapper">
-    <p>
-      Like <b>KIE</b>? Learn more about Red Hat and our open source communities:
-    </p>
-    
-    <div class="row">
-      <div class="column middleware-logo">
-        <img src="//static.jboss.org/common/images/tabzilla/RHJB_Middleware_Logotype.png" alt="Red Hat JBoss MIDDLEWARE">
-      </div>
-      
-      <div class="column">
-        <ul>
-          <li><a href="http://www.jboss.org/technology">Red Hat JBoss Middleware Overview</a></li>
-          <li><a href="http://www.jboss.org/products/">Red Hat JBoss Middleware Products</a></li>
-          <li><a href="http://www.jboss.org/projects/">Red Hat JBoss Projects &amp; Standards</a></li>
-        </ul>
-      </div>
-      
-      <div class="column">
-        <ul>
-          <li><a href="http://www.redhat.com/">redhat.com</a></li>
-          <li><a href="http://access.redhat.com/">Red Hat Customer Portal</a></li>
-          <li><a href="http://www.openshift.com/">OpenShift</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="overlay"></div>
 
 <nav id="kie_header">
   <div class="wrapper">
     <div class="logo"></div>
     <h1>KIE</h1>
+    <a href="http://blog.kie.org">Blog</a>
     <a href="https://kogito.kie.org">Kogito</a>
     <a href="http://www.drools.org">Drools</a>
     <a href="http://www.jbpm.org/">jBPM</a>
     <a href="http://www.optaplanner.org">Optaplanner</a>
-    <a href="#" id="responsive_menu_button">&#9776;</a>
-    <a href="#" id="middleware_tab_button"></a>
-    <ul id=responsive_menu>
-      <li><a href="https://kogito.kie.org">Kogito</a></li>
-      <li><a href="http://www.drools.org">Drools</a></li>
-      <li><a href="http://www.jbpm.org/">jBPM</a></li>
-      <li><a href="http://www.optaplanner.org">Optaplanner</a></li>
-    </ul>
+    <a href="#" class="responsive-menu-button">&#9776;</a>
   </div>
 </nav>
 
+<div id="responsive_menu">
+  <ul>
+    <li>
+      <a href="#" class="responsive-menu-button close-button">&#10005;</a>
+      <h4>
+        KIE websites
+      </h4>
+      <ul>
+        <li><a href="http://blog.kie.org">Blog</a></li>
+        <li><a href="https://kogito.kie.org">Kogito</a></li>
+        <li><a href="http://www.drools.org">Drools</a></li>
+        <li><a href="http://www.jbpm.org/">jBPM</a></li>
+        <li><a href="http://www.optaplanner.org">Optaplanner</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
 <script type="text/javascript">
-  $("#middleware_tab_button").click(function() {
-    $("#middleware_tab").toggleClass("opened");
-    return false;
-  });
-  $("#responsive_menu_button").click(function() {
-    $("#kie_header").toggleClass("responsive-menu-opened");
-    return false;
-  });
+  (function() {
+
+    var responsiveMenuClass = "responsive-menu-opened";
+
+    function closeResponsiveMenu() {
+      document.body.classList.remove(responsiveMenuClass);
+    }
+
+    function toggleResponsiveMenu() {
+      document.body.classList.toggle(responsiveMenuClass);
+    }
+
+    $(".responsive-menu-button").click(function(e) {
+      toggleResponsiveMenu();
+      e.preventDefault();
+      return false;
+    });
+
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) {
+        closeResponsiveMenu()
+      }
+    });
+
+    $(document).click(closeResponsiveMenu);
+
+    // Do not hide sidebar when click event happens inside of responsive menu.
+    $('#responsive_menu').click(function(event) {
+      event.stopPropagation();
+    });
+  }())
 </script>
